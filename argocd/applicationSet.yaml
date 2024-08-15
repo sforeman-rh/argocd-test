@@ -23,9 +23,9 @@ spec:
     spec:
       project: default
       sources:
-        - repoURL: https://github.com/argoproj/argocd-example-apps.git
+        - repoURL: '{{.repoURL}}'
           targetRevision: HEAD
-          path: '{{.path}}'
+          path: '{{.repoPath}}'
         - repoURL: https://github.com/sforeman-rh/argocd-test.git
           targetRevision: HEAD
           path: '{{.size}}'
