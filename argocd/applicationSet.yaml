@@ -10,7 +10,7 @@ spec:
   - matrix:
       generators:
       - git:
-          repoURL: https://github.com/sforeman-rh/argocd-test.github
+          repoURL: https://github.com/sforeman-rh/argocd-test.git
           revision: HEAD
           files:
           - path: argocd/config.yaml
