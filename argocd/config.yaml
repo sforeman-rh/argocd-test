@@ -1,11 +1,14 @@
 key:
   components:
     - name: small
-      path: guestbook
+      repoURL: https://github.com/argoproj/argocd-example-apps.git
+      repoPath: guestbook
       size: small
     - name: medium
-      path: guestbook
+      repoURL: https://github.com/argoproj/argocd-example-apps.git
+      repoPath: guestbook
       size: medium
     - name: large
-      path: guestbook
+      repoURL: https://github.com/argoproj/argocd-example-apps.git
+      repoPath: guestbook
       size: large
