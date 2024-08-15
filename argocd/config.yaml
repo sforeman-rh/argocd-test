@@ -1,0 +1,11 @@
+key:
+  components:
+    - name: small
+      path: guestbook
+      size: small
+    - name: medium
+      path: guestbook
+      size: medium
+    - name: large
+      path: guestbook
+      size: large

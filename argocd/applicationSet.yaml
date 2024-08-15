@@ -7,17 +7,15 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - list:
-      elements:
-      - name: small
-        path: guestbook
-        size: small
-      - name: medium
-        path: guestbook
-        size: medium
-      - name: large
-        path: guestbook
-        size: large
+  - matrix:
+      generators:
+      - git:
+          repoURL: https://github.com/sforeman-rh/argocd-test.github
+          revision: HEAD
+          files:
+          - path: argocd/config.yaml
+      - list:
+          elementsYaml: "{{ .key.components | toJson }}"
   template:
     metadata:
       namespace: openshift-gitops
