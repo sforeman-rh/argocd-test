@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  namespace: openshift-gitops
+  name: guestbook
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+      - name: small
+        path: guestbook
+        size: small
+      - name: medium
+        path: guestbook
+        size: medium
+      - name: large
+        path: guestbook
+        size: large
+  template:
+    metadata:
+      namespace: openshift-gitops
+      name: 'guestbook-{{.name}}'
+    spec:
+      project: default
+      sources:
+        - repoURL: https://github.com/argoproj/argocd-example-apps.git
+          targetRevision: HEAD
+          path: '{{.path}}'
+        - repoURL: https://github.com/sforeman-rh/argocd-test.git
+          targetRevision: HEAD
+          path: '{{.size}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: 'guestbook-{{.name}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
