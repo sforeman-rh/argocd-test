@@ -13,7 +13,7 @@ spec:
           repoURL: https://github.com/sforeman-rh/argocd-test.git
           revision: HEAD
           files:
-          - path: argocd/config.yaml
+          - path: argocd/configs/*
       - list:
           elementsYaml: "{{ .key.components | toJson }}"
   template:
