@@ -1,0 +1,6 @@
+key:
+  components:
+    - name: small
+      repoURL: https://github.com/argoproj/argocd-example-apps.git
+      repoPath: guestbook
+      size: small
